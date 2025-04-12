@@ -1,14 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { Suspense } from 'react'
 import './App.css'
+import Navbar from './components/navbar/Navbar'
+import Blogs from './components/Blogs/Blogs'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>  
-      <h1>Scribble Cafe</h1>
+    <>
+      <Navbar></Navbar>
+
+
+      <div className="main-container flex  mt-5">
+        <div className="blog-section w-[70%]">
+          
+          <Blogs></Blogs>
+        </div>
+        <div className="notification-section w-[30%]">
+          <h3>Reading Time :</h3>
+          <h3>Bookmarked : </h3>
+        </div>
+      </div>
     </>
   )
 }
