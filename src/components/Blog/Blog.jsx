@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({blog}) => {
+const Blog = ({blog, handleBookmark, handleRedingTime}) => {
 
     return (
         <div>
@@ -23,12 +23,12 @@ const Blog = ({blog}) => {
     </div>
     <div className='flex'>
         {
-            blog.hashtags.map((hash) => <p>#{hash}</p>) 
+            blog.hashtags.map((hash) => <p className='font-bold'>#{hash}</p>) 
         }
     </div>
     <div className="card-actions  mt-3 flex justify-between items-center">
-      <button className="btn btn-primary ">Mark as read</button>
-      <FaBookmark size={25} />
+      <button onClick={()=> handleRedingTime(blog.reading_time)} className="btn btn-primary ">Mark as read</button>
+      <button onClick={ () => handleBookmark(blog)}><FaBookmark size={25} /></button>
     </div>
   </div>
 </div>
