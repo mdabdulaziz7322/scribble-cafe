@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({blog, handleBookmark, handleRedingTime}) => {
+
+const Blog = ({blog, handleBookmark, handleRedingTime, notify}) => {
 
     return (
         <div>
+          
             <div className="card bg-base-100 w-96">
   <figure>
     <img
@@ -27,9 +29,10 @@ const Blog = ({blog, handleBookmark, handleRedingTime}) => {
         }
     </div>
     <div className="card-actions  mt-3 flex justify-between items-center">
-      <button onClick={()=> handleRedingTime(blog.reading_time, blog.id)} className="btn btn-primary ">Mark as read</button>
-      <button onClick={ () => handleBookmark(blog)}><FaBookmark size={25} /></button>
+      <button onClick={()=> handleRedingTime(blog.reading_time, blog.id) }  className="btn btn-primary ">Mark as read</button>
+      <button onClick={ () =>{ handleBookmark(blog); notify()}}><FaBookmark size={25} /></button>
     </div>
+    
   </div>
 </div>
         </div>
